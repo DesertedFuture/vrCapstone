@@ -8,3 +8,4 @@ extract file
 open unity then open extracted file
 
 to view within unity, make sure to toggle "puase on error" in the console 
+voice commands are recognised but you can also use the F1 - F5 keys in replacement for voice commands
