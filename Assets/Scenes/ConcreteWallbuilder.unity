@@ -378,6 +378,7 @@ MonoBehaviour:
   formwork: {fileID: 6259677755700089755, guid: b9fa721fbaeb246418297d6c79f0e855, type: 3}
   hvacBlocks: {fileID: 4998029195942222703, guid: 20661cb1eb278864d83981becd3cdcf9, type: 3}
   plumbing: {fileID: 6721760004749696236, guid: 522f805fce3882b4995a645c958c1b95, type: 3}
+  fullWall: {fileID: 6293312779012801038, guid: 963b5da44580aa14ab2b9192a19be629, type: 3}
 --- !u!1 &1644364339
 GameObject:
   m_ObjectHideFlags: 0

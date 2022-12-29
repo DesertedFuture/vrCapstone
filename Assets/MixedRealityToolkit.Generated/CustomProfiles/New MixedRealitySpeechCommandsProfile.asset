@@ -18,7 +18,7 @@ MonoBehaviour:
   speechCommands:
   - localizationKey: 
     keyword: Install Rebar
-    keyCode: 283
+    keyCode: 282
     action:
       id: 6
       description: Trigger

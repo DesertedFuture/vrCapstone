@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6551759487223174482}
   - component: {fileID: 4723892841791606844}
   m_Layer: 0
-  m_Name: Object.93
+  m_Name: wall-hvac
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7948978702390131767}
   - component: {fileID: 8525072867961501758}
   m_Layer: 0
-  m_Name: Object.57
+  m_Name: wall-embeds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 5216932801155618932}
   - component: {fileID: 7842106584528124668}
   m_Layer: 0
-  m_Name: Object.6
+  m_Name: wall-electrical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 5108217847236426692}
   - component: {fileID: 7902899736887495088}
   m_Layer: 0
-  m_Name: Object.65
+  m_Name: wall-rebar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 2150940834463374641}
   - component: {fileID: 8130922303615724349}
   m_Layer: 0
-  m_Name: Object.8
+  m_Name: wall-formwork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,7 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6637608818753427636}
   m_Layer: 0
-  m_Name: 3d-builder-configuration
+  m_Name: fullWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 2249605515575903458}
   - component: {fileID: 3486408532317709805}
   m_Layer: 0
-  m_Name: Object.60
+  m_Name: wall-plumbing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
