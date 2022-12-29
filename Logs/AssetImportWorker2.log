@@ -15,7 +15,7 @@ C:/Users/scott/Documents/GitHub/vrCapstone
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-59375
+60694
 Successfully changed project path to: C:/Users/scott/Documents/GitHub/vrCapstone
 C:/Users/scott/Documents/GitHub/vrCapstone
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ C:/Users/scott/Documents/GitHub/vrCapstone
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [27228] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 1721969542 [EditorId] 1721969542 [Version] 1048832 [Id] WindowsEditor(7,scott-desktop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [30260] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 1674204894 [EditorId] 1674204894 [Version] 1048832 [Id] WindowsEditor(7,scott-desktop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [27228] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 1721969542 [EditorId] 1721969542 [Version] 1048832 [Id] WindowsEditor(7,scott-desktop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [30260] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 1674204894 [EditorId] 1674204894 [Version] 1048832 [Id] WindowsEditor(7,scott-desktop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 120.62 ms, found 14 plugins.
+Refreshing native plugins compatible for Editor in 108.77 ms, found 14 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.16f1 (4016570cf34f)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -67,56 +67,56 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56056
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56864
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.008891 seconds.
+Registered in 0.007175 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 85.19 ms, found 14 plugins.
+Refreshing native plugins compatible for Editor in 83.51 ms, found 14 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.577 seconds
+- Completed reload, in  0.585 seconds
 Domain Reload Profiling:
-	ReloadAssembly (577ms)
-		BeginReloadAssembly (70ms)
+	ReloadAssembly (585ms)
+		BeginReloadAssembly (63ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (411ms)
-			LoadAssemblies (69ms)
+		EndReloadAssembly (424ms)
+			LoadAssemblies (61ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (90ms)
+			SetupTypeCache (108ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (24ms)
-			SetupLoadedEditorAssemblies (248ms)
+			RebuildScriptCaches (22ms)
+			SetupLoadedEditorAssemblies (247ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
+				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (85ms)
+				RefreshPlugins (84ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (109ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
+				ProcessInitializeOnLoadAttributes (117ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009030 seconds.
+Registered in 0.008539 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\scott\Documents\GitHub\vrCapstone\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\scott\Documents\GitHub\vrCapstone\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 84.37 ms, found 14 plugins.
+Refreshing native plugins compatible for Editor in 95.82 ms, found 14 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 System.Exception: Error! Visual Scripting: couldn't find visual scripting package
   at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\scott\Documents\GitHub\vrCapstone\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
@@ -136,48 +136,48 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Package Manager log level set to [2]
-[XR] [MROpenXR][Info   ][09:37:56.302294][tid:6a5c] MeshProvider_RegisterLifecycleProvider
-[XR] [MROpenXR][Info   ][09:37:56.302363][tid:6a5c] InputProvider_RegisterLifecycleProvider
+[XR] [MROpenXR][Info   ][09:47:40.090557][tid:7634] MeshProvider_RegisterLifecycleProvider
+[XR] [MROpenXR][Info   ][09:47:40.090639][tid:7634] InputProvider_RegisterLifecycleProvider
 [XR] Error loading subsystem: Display (1) (header mismatch?)
-[XR] [MROpenXR][Info   ][09:37:56.328421][tid:6a5c] OnPluginStarted UnityVersion=2021.3.16f1 OpenXRPluginVersion=1.5.3 MROpenXRPluginVersion=1.5.1.0 PartA_PrivTags=33554432
+[XR] [MROpenXR][Info   ][09:47:40.091850][tid:7634] OnPluginStarted UnityVersion=2021.3.16f1 OpenXRPluginVersion=1.5.3 MROpenXRPluginVersion=1.5.1.0 PartA_PrivTags=33554432
 Mono: successfully reloaded assembly
-- Completed reload, in  4.008 seconds
+- Completed reload, in  1.755 seconds
 Domain Reload Profiling:
-	ReloadAssembly (4008ms)
-		BeginReloadAssembly (107ms)
+	ReloadAssembly (1756ms)
+		BeginReloadAssembly (95ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (20ms)
-		EndReloadAssembly (3800ms)
-			LoadAssemblies (106ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (1551ms)
+			LoadAssemblies (86ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (444ms)
+			SetupTypeCache (282ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (68ms)
-			SetupLoadedEditorAssemblies (3132ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (1064ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (84ms)
+				RefreshPlugins (96ms)
 				BeforeProcessingInitializeOnLoad (110ms)
-				ProcessInitializeOnLoadAttributes (2088ms)
-				ProcessInitializeOnLoadMethodAttributes (836ms)
-				AfterProcessingInitializeOnLoad (8ms)
+				ProcessInitializeOnLoadAttributes (806ms)
+				ProcessInitializeOnLoadMethodAttributes (39ms)
+				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.21 seconds
-Refreshing native plugins compatible for Editor in 1.37 ms, found 14 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 1.04 ms, found 14 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5457 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 54 unused Assets / (58.4 KB). Loaded Objects now: 5927.
+Unloading 54 unused Assets / (58.5 KB). Loaded Objects now: 5927.
 Memory consumption went from 188.7 MB to 188.7 MB.
-Total: 14.091700 ms (FindLiveObjects: 0.511900 ms CreateObjectMapping: 0.527200 ms MarkObjects: 12.958800 ms  DeleteObjects: 0.092800 ms)
+Total: 11.410800 ms (FindLiveObjects: 0.476100 ms CreateObjectMapping: 0.594300 ms MarkObjects: 10.246400 ms  DeleteObjects: 0.093000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -191,13 +191,221 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 668.063682 seconds.
-  path: Assets/final/baseWall.prefab
-  artifactKey: Guid(0653581092bdb2740a13713730f8eda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/final/baseWall.prefab using Guid(0653581092bdb2740a13713730f8eda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a49207228c0d0edbbccb860fae037465') in 0.364887 seconds 
+  Time since last request: 1251.302979 seconds.
+  path: Assets/final/electrical.prefab
+  artifactKey: Guid(2646c75345255d240a892ffaa8e5c96f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/final/electrical.prefab using Guid(2646c75345255d240a892ffaa8e5c96f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd935805bd94466d748fdbc846826ca52') in 0.164714 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/final/formwork.prefab
+  artifactKey: Guid(b9fa721fbaeb246418297d6c79f0e855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/final/formwork.prefab using Guid(b9fa721fbaeb246418297d6c79f0e855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a43e6d362fe64fedeaf950380c217b7c') in 0.176186 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/final/rebar.prefab
+  artifactKey: Guid(547588db68eda93418ba538e6f7effd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/final/rebar.prefab using Guid(547588db68eda93418ba538e6f7effd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28439fb996934bdb7613b1e2b8a22707') in 0.015604 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/final/plumming.prefab
+  artifactKey: Guid(522f805fce3882b4995a645c958c1b95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/final/plumming.prefab using Guid(522f805fce3882b4995a645c958c1b95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c54053bbb58d6707d697918857dfb63') in 0.011327 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.369597 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/Background.mat
+  artifactKey: Guid(b861d27e49afd724286961e0f6a1de52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/Background.mat using Guid(b861d27e49afd724286961e0f6a1de52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '715a50c17f59e33696cc53f657d60072') in 0.078372 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonIconGrabAreaDoubleProximity.mat
+  artifactKey: Guid(6fa3adcc7cedfc8408bf18cf21ea68c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonIconGrabAreaDoubleProximity.mat using Guid(6fa3adcc7cedfc8408bf18cf21ea68c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80b93a4603285b4b9b6bd99e635ab099') in 0.039349 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000028 seconds.
-  path: Assets/final/rebar.prefab
-  artifactKey: Guid(547588db68eda93418ba538e6f7effd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/final/rebar.prefab using Guid(547588db68eda93418ba538e6f7effd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28439fb996934bdb7613b1e2b8a22707') in 0.018413 seconds 
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicBackPlateCircular.mat
+  artifactKey: Guid(68f0ad9fadae8b3438ebd66cdba2b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicBackPlateCircular.mat using Guid(68f0ad9fadae8b3438ebd66cdba2b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df15b3f4a9d3d63923be4c50e67223c6') in 0.066175 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/Services/DiagnosticsSystem/Materials/DiagnosticsInstancedColored.mat
+  artifactKey: Guid(5b6fc83077d74fd4ca4c675623942a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/Services/DiagnosticsSystem/Materials/DiagnosticsInstancedColored.mat using Guid(5b6fc83077d74fd4ca4c675623942a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec4cc305cb05a1508ccdbb7e88c675d4') in 0.049356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/Foreground.mat
+  artifactKey: Guid(3b3d487d6722afe489a882284f787bbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/Foreground.mat using Guid(3b3d487d6722afe489a882284f787bbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af19acdc73cfc87e28917feceff59d0d') in 0.075466 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonIconAdd.mat
+  artifactKey: Guid(ccf34f78a6419584fa9cea97b5e46131) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonIconAdd.mat using Guid(ccf34f78a6419584fa9cea97b5e46131) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a14c27804e31bae829a7877c24b2ce92') in 0.030806 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonContentCageProximityCircular.mat
+  artifactKey: Guid(ed88a1368a3ad7248b15504ada5915a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonContentCageProximityCircular.mat using Guid(ed88a1368a3ad7248b15504ada5915a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6feb401cf7e746af95580d8522de5d59') in 0.105089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxSlateGrabbed.mat
+  artifactKey: Guid(f671b04930fdad54c8b50a4c6d7d9b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxSlateGrabbed.mat using Guid(f671b04930fdad54c8b50a4c6d7d9b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fef9db596a545dad7a1878bd075e7d51') in 0.063144 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/MixedRealityToolkit.Generated/ProjectPreferences.asset
+  artifactKey: Guid(4f68e2b75c450c94bab49d38da336fd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/ProjectPreferences.asset using Guid(4f68e2b75c450c94bab49d38da336fd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37d5d36cd5b360fc604e62c6f62aca89') in 0.009983 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Models/Materials/Cheese2.mat
+  artifactKey: Guid(2e7ee0c64b3021a46be96a51517a1d94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Models/Materials/Cheese2.mat using Guid(2e7ee0c64b3021a46be96a51517a1d94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48ac5b3e519ff649989e00004eec4416') in 0.061490 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/HandIndexTip.mat
+  artifactKey: Guid(45b288c2aa5c87d41af05c57a5f49acb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/HandIndexTip.mat using Guid(45b288c2aa5c87d41af05c57a5f49acb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ab55191dcd831d1d1940a18533a5a62') in 0.054325 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonContentCageProximityCircularUnityUI.mat
+  artifactKey: Guid(9c3c9d308f2be564192c53122c77079b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicButtonContentCageProximityCircularUnityUI.mat using Guid(9c3c9d308f2be564192c53122c77079b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcd9154ac554a6851c90a34918874300') in 0.009742 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicBackPlate.mat
+  artifactKey: Guid(ec72a3a105768f746b556a8dfdae61a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicBackPlate.mat using Guid(ec72a3a105768f746b556a8dfdae61a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '586167dfe4df6a9091ea0d64024a740b') in 0.068398 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicBackPlateToggleState.mat
+  artifactKey: Guid(552f1a3245d3edc4a96fe296c950532a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/HolographicBackPlateToggleState.mat using Guid(552f1a3245d3edc4a96fe296c950532a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2885821dc965197b34341a2484d84096') in 0.010736 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Packages/com.unity.xr.arfoundation/Materials/DebugPlane.mat
+  artifactKey: Guid(f1a110d32af21aa4d872c707dfcc6043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.xr.arfoundation/Materials/DebugPlane.mat using Guid(f1a110d32af21aa4d872c707dfcc6043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77eee796c23f2c2c0675fbb4331fde8a') in 0.201216 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxHandleBlueGrabbed.mat
+  artifactKey: Guid(bf37b5eab60b288498d02fd524325d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxHandleBlueGrabbed.mat using Guid(bf37b5eab60b288498d02fd524325d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1c7d9b7ffd199a6cc5ad829fd5b6191') in 0.050415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Fonts/selawksl.ttf
+  artifactKey: Guid(0fd94703e1ea496bb9999216ac3ece0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Fonts/selawksl.ttf using Guid(0fd94703e1ea496bb9999216ac3ece0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b141af2aa2af0f9e8e820ffb1a983af') in 0.019953 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/ButtonBackground.mat
+  artifactKey: Guid(136544d5b4710a948b76a024a29c5b84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/ButtonBackground.mat using Guid(136544d5b4710a948b76a024a29c5b84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7c8a034ad5f0e351a40b0a02e062065') in 0.010873 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/Ground.mat
+  artifactKey: Guid(1fac60a6b183d204dbe2c379128ad367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Materials/Ground.mat using Guid(1fac60a6b183d204dbe2c379128ad367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cf042179eae02e98e2f6ff8bd3c5ec5') in 0.062486 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.383907 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Prefabs/Text/3DTextSelawikBold.prefab
+  artifactKey: Guid(f6038dfbe1e1bd14dac07b1405ccda54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Prefabs/Text/3DTextSelawikBold.prefab using Guid(f6038dfbe1e1bd14dac07b1405ccda54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '951cef10e88ae9559b879977d74606a7') in 0.008347 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/InteractiveElement/Prefabs/CompressableButtonCube.prefab
+  artifactKey: Guid(cd2f1e5c2c0ca934ab7b77568de1b45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/InteractiveElement/Prefabs/CompressableButtonCube.prefab using Guid(cd2f1e5c2c0ca934ab7b77568de1b45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1325c19ac4b4b95559fc75abcdce198e') in 0.190621 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Prefabs/ButtonHoloLens1.prefab
+  artifactKey: Guid(80cec532ae7b6c1429d0f5494e7dbd8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Prefabs/ButtonHoloLens1.prefab using Guid(80cec532ae7b6c1429d0f5494e7dbd8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b86c703ebba33ebf0b79ffbcfd8769c') in 0.195888 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Dialog/DialogLarge_192x192.prefab
+  artifactKey: Guid(478732197b53dee4694480aac1a7c98c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Dialog/DialogLarge_192x192.prefab using Guid(478732197b53dee4694480aac1a7c98c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea220504a449b6eda061670d50bbf1fe') in 0.216303 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Cursors/FingerCursor.prefab
+  artifactKey: Guid(27155818b2006c74497a3f244aacc92a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Cursors/FingerCursor.prefab using Guid(27155818b2006c74497a3f244aacc92a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e03dc1c909b00ba4980ad6b938d3f35c') in 0.013822 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Prefabs/AnimationButton.prefab
+  artifactKey: Guid(d5e0e8cc740eb134789fd1f6bb5bb80a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Prefabs/AnimationButton.prefab using Guid(d5e0e8cc740eb134789fd1f6bb5bb80a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08dd9e27e6352810dd67e4c8bd99b0eb') in 0.022463 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Hands/HandJoint.prefab
+  artifactKey: Guid(a0842b2d2ca469847b09a969426bb48e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Hands/HandJoint.prefab using Guid(a0842b2d2ca469847b09a969426bb48e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02216072213b81697df80dfb96fb2f7d') in 0.073552 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.436382 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Models/Cheese.fbx
+  artifactKey: Guid(fda2bf148915d3f419cd5690edf148c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Models/Cheese.fbx using Guid(fda2bf148915d3f419cd5690edf148c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '902a073c4e30199d452efcbdb9b9df0c') in 0.104354 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Controllers/Visuals/Gizmos/GizmoRight.fbx
+  artifactKey: Guid(16afe3fd2a3c4d2c85aeeb732ae7f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Controllers/Visuals/Gizmos/GizmoRight.fbx using Guid(16afe3fd2a3c4d2c85aeeb732ae7f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bdf78bbc33ff6e85ac631b69fdfcb0c') in 0.022804 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Sliders/thick_rounded12.fbx
+  artifactKey: Guid(8881ed45b1c1d9c45b0f99ba2730ee66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Sliders/thick_rounded12.fbx using Guid(8881ed45b1c1d9c45b0f99ba2730ee66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9c2c8d1659e8540d7523500ea495110') in 0.017579 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_MoveArrows_geo.fbx
+  artifactKey: Guid(15c4f2d8e761dd34a9cdbae9c6a96bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_MoveArrows_geo.fbx using Guid(15c4f2d8e761dd34a9cdbae9c6a96bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94946a85e3f11bfcfb8f575331092567') in 0.057037 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_RotateArrows_geo.fbx
+  artifactKey: Guid(1f927d8a23ccb6443b8eb9990f48070b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_RotateArrows_geo.fbx using Guid(1f927d8a23ccb6443b8eb9990f48070b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11365d7630f9880a86516c9517a32d2d') in 0.017877 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Pointers/DefaultPointerDottedLine.fbx
+  artifactKey: Guid(22a8495610f36594ebf91bc92e5579c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Pointers/DefaultPointerDottedLine.fbx using Guid(22a8495610f36594ebf91bc92e5579c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f1ac0672f414759fafca0825afa1066') in 0.017177 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
