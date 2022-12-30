@@ -16,7 +16,7 @@ public class installWalls : MonoBehaviour
      * if else statement to check if any of their own objects exist already
      * 
      */
-
+    //win function
     public void win()
     {
         if(GameObject.Find("hvac(Clone)") && GameObject.Find("plumbing(Clone)"))
@@ -33,11 +33,19 @@ public class installWalls : MonoBehaviour
         }
         return false;
     }
+    
+    public void dropObject(GameObject t)
+    {
+
+    }
+    
     public void InstallRebar()
     {
         //if else to prevent duplicate objects of same type
         if( GameObject.Find("rebar(Clone)") )
         {
+            GameObject lmao = Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            dropObject(lmao);
         } else
         {
             Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
