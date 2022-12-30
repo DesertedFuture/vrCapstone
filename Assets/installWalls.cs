@@ -70,6 +70,7 @@ public class installWalls : MonoBehaviour
     {
         if ( GameObject.Find("embeds(Clone)") )
         {
+            
         }
         else
         {
@@ -83,6 +84,9 @@ public class installWalls : MonoBehaviour
                 }
             } else
             {
+                Vector3 myVector = new Vector3(0f, 1f, 0f);
+                //embeds.transform.position
+                Destroy(Instantiate(embeds, embeds.transform.position+myVector, Quaternion.Euler(0f, 180f, 0f)), 5f);
                 //maybe a failure instance
                 Debug.Log("Cant install embeds until rebar is placed");
             }
