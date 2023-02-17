@@ -1,3 +1,6 @@
+// CSE486 AR Capstone
+// Scott Snyder
+//
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +39,7 @@ public class installWalls : MonoBehaviour
     
     public void dropObject(GameObject t)
     {
-
+        t.transform.parent = null;
     }
     
     public void InstallRebar()
@@ -77,16 +80,24 @@ public class installWalls : MonoBehaviour
             //nested if to make sure it can be called as to flow chart
             if (GameObject.Find("rebar(Clone)"))
             {
-                Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
-                if(checkEmbedsElectrical())
+                GameObject something = Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
+                something.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+                something.GetComponent<Collider>().enabled = false;
+                if (checkEmbedsElectrical())
                 {
                     Debug.Log("THIS IS NOW WHERE AN EVENT NEEDS TO OCCUR TO LET STUDENT KNOW THAT THERE NEEDS TO BE A DILVERY");
                 }
             } else
             {
-                Vector3 myVector = new Vector3(0f, 1f, 0f);
+                GameObject kek = Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
+
+                kek.GetComponent<Rigidbody>().useGravity = true;
+                kek.GetComponent<Collider>().enabled = true;
+                //kek.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+
                 //embeds.transform.position
-                Destroy(Instantiate(embeds, embeds.transform.position+myVector, Quaternion.Euler(0f, 180f, 0f)), 5f);
+                // Destroy(Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f)), 5f);
+                Destroy(kek, 5f);
                 //maybe a failure instance
                 Debug.Log("Cant install embeds until rebar is placed");
             }
