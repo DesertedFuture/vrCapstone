@@ -15,144 +15,204 @@ public class installWalls : MonoBehaviour
     [SerializeField] private GameObject hvacBlocks;
     [SerializeField] private GameObject plumbing;
     [SerializeField] private GameObject fullWall;
-    /*
-     * if else statement to check if any of their own objects exist already
-     * 
-     */
-    //win function
-    public void win()
+
+    public float val = 0;
+    public bool timer;
+    public static List<string> listActions = new List<string>();
+    public static List<bool> listValid = new List<bool>();
+    public static List<float> listTime = new List<float>();
+
+    public void addList(string s, bool f, float t)
     {
-        if(GameObject.Find("hvac(Clone)") && GameObject.Find("plumbing(Clone)"))
+        listActions.Add(s);
+        listValid.Add(f);
+        listTime.Add(t);
+    }
+    public void printList()
+    {
+        Debug.Log("Actions \t Correctness \t Timen\n");
+        for (int i = 0; i < listActions.Count; i++)
         {
-            Debug.Log("You Win!! NICE!!!!!!!!!!!!!!!!!!!!!!");
+            Debug.Log(listActions[i] + "\t" + listValid[i] + "\t" +listTime[i] );
+
         }
     }
-    //utility function to check if everything is done prior to 'curve ball'
-    public bool checkEmbedsElectrical()
+    public void reset()
     {
-        if(GameObject.Find("rebar(Clone)") && GameObject.Find("electrical(Clone)") && GameObject.Find("embeds(Clone)") )
+        Destroy(GameObject.Find("rebar(Clone)"));
+        Destroy(GameObject.Find("electrical(Clone)"));
+        Destroy(GameObject.Find("formwork(Clone)"));
+        Destroy(GameObject.Find("hvac(Clone)"));
+        Destroy(GameObject.Find("plumbing(Clone)"));
+
+    }
+
+    public void notifyDelivery()
+    {
+        if (checkEER())
+        {
+            Debug.Log("THIS IS NOW WHERE AN EVENT NEEDS TO OCCUR TO LET STUDENT KNOW THAT THERE NEEDS TO BE A DILVERY");
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!drop down notification at least!!!!!!!!!!!!!!!!
+        }
+
+
+    }
+
+
+    //HVAC blocks and plumbing is dependant on formwork
+
+    //formwork depends on previous three being installed
+
+    //embeds are dependant on rebar
+
+    //rebar and electrical are free to be installed at anytime
+    public bool checkEER()
+    { 
+        if (GameObject.Find("rebar(Clone)") && GameObject.Find("electrical(Clone)") && GameObject.Find("embeds(Clone)"))
         {
             return true;
+            
         }
         return false;
     }
-    
-    public void dropObject(GameObject t)
+        //win function
+    public void checkWin()
     {
-        t.transform.parent = null;
+        timer = false;
+        Debug.Log("finsihed in: " + val);
+
+        if(GameObject.Find("hvac(Clone)") && GameObject.Find("plumbing(Clone)"))
+        {
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!You Win!! NICE!!!!!!!!!!!!!!!!!!!!!!");
+            printList();  
+        }
     }
-    
+  
     public void InstallRebar()
     {
         //if else to prevent duplicate objects of same type
-        if( GameObject.Find("rebar(Clone)") )
+        if ( !GameObject.Find("rebar(Clone)"))
         {
-            GameObject lmao = Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            dropObject(lmao);
-        } else
+            GameObject rebarKeep = Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            rebarKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            rebarKeep.GetComponent<Collider>().enabled = false;
+            addList("Install Rebar", true, val);
+        } 
+        else
         {
-            Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            GameObject rebarDestroy = Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            rebarDestroy.GetComponent<Rigidbody>().useGravity = true;
+            rebarDestroy.GetComponent<Collider>().enabled = true;
+            Destroy(rebarDestroy, 5f);
+            addList("Install Rebar", false, val);
         }
     }
     public void InstallElectrical()
     {
-        if ( GameObject.Find("electrical(Clone)") )
+        if ( !GameObject.Find("electrical(Clone)")  && GameObject.Find("rebar(Clone)"))
         {
+            GameObject electricalKeep = Instantiate(electrical, electrical.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            electricalKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            electricalKeep.GetComponent<Collider>().enabled = false;
+            notifyDelivery();
+            addList("Install Electrical", true, val);
         }
         else
         {
-            if (checkEmbedsElectrical())
-            {
-                Debug.Log("THIS IS NOW WHERE AN EVENT NEEDS TO OCCUR TO LET STUDENT KNOW THAT THERE NEEDS TO BE A DILVERY");
-            }
-            Instantiate(electrical, electrical.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            GameObject electricalDestroy = Instantiate(electrical, electrical.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            electricalDestroy.GetComponent<Rigidbody>().useGravity = true;
+            electricalDestroy.GetComponent<Collider>().enabled = true;
+            Destroy(electricalDestroy, 5f);
+            addList("Install Electrical", false, val);
+
         }
         
     }
     public void InstallEmbeds()
     {
-        if ( GameObject.Find("embeds(Clone)") )
+        //if true then its intended to do nothing 
+        if ( !GameObject.Find("embeds(Clone)") && GameObject.Find("rebar(Clone)"))
         {
-            
+            GameObject embedsKeep = Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            embedsKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            embedsKeep.GetComponent<Collider>().enabled = false;
+            notifyDelivery();
+            addList("Install Embeds", true, val);
         }
         else
         {
-            //nested if to make sure it can be called as to flow chart
-            if (GameObject.Find("rebar(Clone)"))
-            {
-                GameObject something = Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
-                something.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-                something.GetComponent<Collider>().enabled = false;
-                if (checkEmbedsElectrical())
-                {
-                    Debug.Log("THIS IS NOW WHERE AN EVENT NEEDS TO OCCUR TO LET STUDENT KNOW THAT THERE NEEDS TO BE A DILVERY");
-                }
-            } else
-            {
-                GameObject kek = Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
-
-                kek.GetComponent<Rigidbody>().useGravity = true;
-                kek.GetComponent<Collider>().enabled = true;
-                //kek.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-
-                //embeds.transform.position
-                // Destroy(Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f)), 5f);
-                Destroy(kek, 5f);
-                //maybe a failure instance
-                Debug.Log("Cant install embeds until rebar is placed");
-            }
-            
+            GameObject emebedsDestroy = Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            emebedsDestroy.GetComponent<Rigidbody>().useGravity = true;
+            emebedsDestroy.GetComponent<Collider>().enabled = true;
+            Destroy(emebedsDestroy, 5f);
+            Debug.Log("Cant install embeds until rebar is placed");
+            addList("Install Embeds", false, val);
         }
         
     }
     public void InstallFormwork()
     {
-        if (GameObject.Find("formwork(Clone)"))
+        if (!GameObject.Find("formwork(Clone)") && checkEER())
         {
+            GameObject formworkKeep = Instantiate(formwork, formwork.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            formworkKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            formworkKeep.GetComponent<Collider>().enabled = false;
+            addList("Install Formwork", true, val);
         }
         else
         {
-            if (checkEmbedsElectrical())
-            {
-                Instantiate(formwork, formwork.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            }
-            
+            GameObject formworkDestroy = Instantiate(formwork, formwork.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            formworkDestroy.GetComponent<Rigidbody>().useGravity = true;
+            formworkDestroy.GetComponent<Collider>().enabled = true;
+            Destroy(formworkDestroy, 5f);
+            addList("Install Formwork", false, val);
+            Debug.Log("Cant install formwork until Other conditions are met");
         }
         
     }
     public void InstallHVACBlocks()
     {
         
-        if ( GameObject.Find("hvac(Clone)") )
+        if ( !GameObject.Find("hvac(Clone)")  && (GameObject.Find("formwork(Clone)") ) )
         {
+            GameObject hvacKeep = Instantiate(hvacBlocks, hvacBlocks.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            hvacKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            hvacKeep.GetComponent<Collider>().enabled = false;
+            addList("Install HVAC blocks", true, val);
+            checkWin();
         }
         else
         {
-            if (GameObject.Find("formwork(Clone)") )
-            {
-                Instantiate(hvacBlocks, hvacBlocks.transform.position, Quaternion.Euler(0f, 180f, 0f));
-                win();
-            }
-            else
+            GameObject hvacDestroy = Instantiate(hvacBlocks, hvacBlocks.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            hvacDestroy.GetComponent<Rigidbody>().useGravity = true;
+            hvacDestroy.GetComponent<Collider>().enabled = true;
+            Destroy(hvacDestroy, 5f);
+            addList("Install HVAC blocks", false, val);
+            if (!GameObject.Find("formwork(Clone)"))
             {
                 Debug.Log("You need to have formwork first in order to do this");
             }
-            
         }
         
     }
     public void InstallPlumbing()
     {
-        if ( GameObject.Find("plumbing(Clone)") )
+        if ( !GameObject.Find("plumbing(Clone)")  && GameObject.Find("formwork(Clone)"))
         {
+            GameObject plumbingKeep = Instantiate(plumbing, plumbing.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            plumbingKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            plumbingKeep.GetComponent<Collider>().enabled = false;
+            checkWin();
+            addList("Install Pluming", true, val);
         }
         else
         {
-            if (GameObject.Find("formwork(Clone)") )
-            {
-                Instantiate(plumbing, plumbing.transform.position, Quaternion.Euler(0f, 180f, 0f));
-                win();
-            } else
+            GameObject plumbingDestroy = Instantiate(plumbing, plumbing.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            plumbingDestroy.GetComponent<Rigidbody>().useGravity = true;
+            plumbingDestroy.GetComponent<Collider>().enabled = true;
+            Destroy(plumbingDestroy, 5f);
+            addList("Install Pluming", false, val);
+            if (!GameObject.Find("formwork(Clone)"))
             {
                 Debug.Log("You need to have formwork first in order to do this");
             }
@@ -164,12 +224,19 @@ public class installWalls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(timer)
+        {
+            val += Time.deltaTime;
+        }
+        
     }
 
     void Start()
     {
-        Instantiate(baseWall, baseWall.transform.position, Quaternion.Euler(0f, 180f, 0f));        
+        timer = true;
+        GameObject wallStart = Instantiate(baseWall, baseWall.transform.position, Quaternion.Euler(0f, 180f, 0f));
+        wallStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+        wallStart.GetComponent<Collider>().enabled = false;
     }
 
 }
