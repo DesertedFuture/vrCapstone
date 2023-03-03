@@ -4,13 +4,19 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - baseWall: {fileID: 4519158357470681579, guid: 31b4fec8c2b1e4b45bea40160fd23971, type: 3}
+  - baseWall: {fileID: 309141616089949708, guid: d8efc1b7d8d634f4182f2f0b0cf1864f, type: 3}
   - rebar: {fileID: 3652158973640131004, guid: 547588db68eda93418ba538e6f7effd0, type: 3}
   - electrical: {fileID: 8909574755966340094, guid: 2646c75345255d240a892ffaa8e5c96f, type: 3}
   - embeds: {fileID: 4536376941405095267, guid: b26885d099209364a9b23d46a111131a, type: 3}
   - formwork: {fileID: 6259677755700089755, guid: b9fa721fbaeb246418297d6c79f0e855, type: 3}
   - hvacBlocks: {fileID: 4998029195942222703, guid: 20661cb1eb278864d83981becd3cdcf9, type: 3}
   - plumbing: {fileID: 6721760004749696236, guid: 522f805fce3882b4995a645c958c1b95, type: 3}
+  - rebarFail: {instanceID: 0}
+  - electricalFail: {instanceID: 0}
+  - embedsFail: {instanceID: 0}
+  - formworkFail: {instanceID: 0}
+  - hvacBlocksFail: {instanceID: 0}
+  - plumbingFail: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

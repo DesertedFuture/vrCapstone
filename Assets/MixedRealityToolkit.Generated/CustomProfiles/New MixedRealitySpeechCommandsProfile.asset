@@ -65,3 +65,10 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Delivary
+    keyCode: 292
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0

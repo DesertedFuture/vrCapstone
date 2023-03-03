@@ -373,6 +373,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - keyword: Delivary
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1580433550}
+          m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
+          m_MethodName: delivary
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   persistentKeywords: 0
   speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
 --- !u!114 &1580433550
@@ -387,13 +403,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b63b7f570babb649939a85a19dea032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseWall: {fileID: 7164905359274351507, guid: 0653581092bdb2740a13713730f8eda8, type: 3}
+  baseWall: {fileID: 1211692267351255647, guid: 989767224b2633c49bc76f261e1ea349, type: 3}
+  baseRebar: {fileID: 1354279492197288351, guid: abffc13f9cdda264b8671292a65a75e7, type: 3}
   rebar: {fileID: 509216510044803479, guid: 2e7dbcaf5d149694fa2b94aacd2f1dea, type: 3}
   electrical: {fileID: 5492296305480692338, guid: fbe710fc0904a2247b330f3a84c500a1, type: 3}
   embeds: {fileID: 2667019486882314734, guid: 33e9d030d88105c438919beb8101528a, type: 3}
   formwork: {fileID: 999175521451040818, guid: f1e8addbf83b4eb4dafd49d3c2a3baff, type: 3}
   hvacBlocks: {fileID: 1586548341390587117, guid: 72895d505074cbd4287c2ee5964a0026, type: 3}
   plumbing: {fileID: 8283264518408251683, guid: f964e7098ccc3e34eb560d22e301f415, type: 3}
+  rebarFail: {fileID: 3652158973640131004, guid: 547588db68eda93418ba538e6f7effd0, type: 3}
+  electricalFail: {fileID: 8909574755966340094, guid: 2646c75345255d240a892ffaa8e5c96f, type: 3}
+  embedsFail: {fileID: 4536376941405095267, guid: b26885d099209364a9b23d46a111131a, type: 3}
+  formworkFail: {fileID: 6259677755700089755, guid: b9fa721fbaeb246418297d6c79f0e855, type: 3}
+  hvacBlocksFail: {fileID: 4998029195942222703, guid: 20661cb1eb278864d83981becd3cdcf9, type: 3}
+  plumbingFail: {fileID: 6721760004749696236, guid: 522f805fce3882b4995a645c958c1b95, type: 3}
   val: 0
   timer: 0
 --- !u!1 &1644364339
