@@ -6,6 +6,16 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using UnityEngine;
+using System.Linq;
+using Microsoft.MixedReality.Toolkit.UI;
+
+#if WINDOWS_UWP
+using Windows.Storage;
+using Windows.System;
+using System.Threading.Tasks;
+using Windows.Storage.Streams;
+#endif
+
 
 public class installWalls : MonoBehaviour
 {
@@ -26,6 +36,8 @@ public class installWalls : MonoBehaviour
     [SerializeField] private GameObject hvacBlocksFail;
     [SerializeField] private GameObject plumbingFail;
 
+
+
     [Serializable]
     public class Player
     {
@@ -34,13 +46,45 @@ public class installWalls : MonoBehaviour
         public List<double> playerTime = new List<double>();
     }
 
+    [SerializeField]
+    [Tooltip("Assign DialogSmall_192x96.prefab")]
+    private GameObject dialogPrefabSmall;
+
+    /// <summary>
+    /// Small Dialog example prefab to display
+    /// </summary>
+    public GameObject DialogPrefabSmall
+    {
+        get => dialogPrefabSmall;
+        set => dialogPrefabSmall = value;
+    }
+
+
     public static bool magicWord = false;
     public float val = 0;
     public bool timer;
     public static List<string> listActions = new List<string>();
     public static List<bool> listValid = new List<bool>();
     public static List<double> listTime = new List<double>();
-   
+
+
+    public void saveResults()
+    {
+        Player newPlayer = new Player();
+        newPlayer.playerActions = listActions;
+        newPlayer.playerTime = listTime;
+        newPlayer.playerValid = listValid;
+        string jsonString = JsonUtility.ToJson(newPlayer, true);
+
+        //Application.persistentDataPath
+        string path = Path.Combine(Application.persistentDataPath, "playerData.json");
+        using (TextWriter writer = File.AppendText(path))
+        {
+            // TODO write text here
+            writer.WriteLine(jsonString);
+        }
+
+    }
     public void delivary()
     {
         magicWord = true;
@@ -52,22 +96,20 @@ public class installWalls : MonoBehaviour
         listValid.Add(f);
         listTime.Add(Math.Round(t, 2));
     }
-    public void printList()
-    {
-        Player newPlayer = new Player();
-        newPlayer.playerActions = listActions;
-        newPlayer.playerTime = listTime;
-        newPlayer.playerValid = listValid;
-        string json = JsonUtility.ToJson(newPlayer, true);
-        Debug.Log(json);
-    }
+
     public void reset()
     {
+        //destroy everything and run start from the top
         Destroy(GameObject.Find("rebarParent(Clone)"));
         Destroy(GameObject.Find("electricalParent(Clone)"));
         Destroy(GameObject.Find("formworkParent(Clone)"));
         Destroy(GameObject.Find("hvacParent(Clone)"));
         Destroy(GameObject.Find("plumbingParent(Clone)"));
+        Destroy(GameObject.Find("embedsParent(Clone)"));
+        Destroy(GameObject.Find("wallBase(Clone)"));
+
+
+        Start();
 
     }
 
@@ -76,20 +118,14 @@ public class installWalls : MonoBehaviour
         if (checkEER())
         {
             Debug.Log("THIS IS NOW WHERE AN EVENT NEEDS TO OCCUR TO LET STUDENT KNOW THAT THERE NEEDS TO BE A DILVERY");
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!drop down notification at least!!!!!!!!!!!!!!!!
+            //!!!!!!!!!!!!!!!!!drop down notification at least!!!!!!!!!!!!!!!!
         }
 
 
     }
 
-    //HVAC blocks and plumbing is dependant on formwork
-
-    //formwork depends on previous three being installed
-
-    //embeds are dependant on rebar
-
-    //rebar and electrical are free to be installed at anytime
-    public bool checkEER()
+    //used to see if you can install formwork
+    public bool checkEER() 
     { 
         if (GameObject.Find("rebarParent(Clone)") && GameObject.Find("electricalParent(Clone)") && GameObject.Find("embedsParent(Clone)"))
         {
@@ -99,12 +135,6 @@ public class installWalls : MonoBehaviour
         return false;
     }
 
-    public void storeInfo(string docPath)
-    {
-        //string plainText = "ayooo";
-
-    }
-
     public void checkWin()
     {
         timer = false;
@@ -112,12 +142,23 @@ public class installWalls : MonoBehaviour
 
         if(GameObject.Find("hvacParent(Clone)") && GameObject.Find("plumbingParent(Clone)"))
         {
-            //notification 
-            //run script here
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!You Win!! NICE!!!!!!!!!!!!!!!!!!!!!!");
-            printList();  
+            Dialog myDialog = Dialog.Open(DialogPrefabSmall, DialogButtonType.Yes | DialogButtonType.No, "Nice job on completion!", "Would you like to save data?", true);
+            if (myDialog != null)
+            {
+                myDialog.OnClosed += OnClosedDialogEvent;
+            }
+
         }
-    } 
+    }
+    private void OnClosedDialogEvent(DialogResult obj)
+    {
+        if (obj.Result == DialogButtonType.Yes)
+        {
+            //save results
+            saveResults();
+            
+        }
+    }
     public void InstallRebar()
     {
         //if else to prevent duplicate objects of same type
@@ -273,6 +314,7 @@ public class installWalls : MonoBehaviour
         GameObject wallRebar = Instantiate(baseRebar, baseRebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
         wallStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         wallStart.GetComponent<Collider>().enabled = false;
+        Debug.Log(Application.persistentDataPath);
 
     }
 
