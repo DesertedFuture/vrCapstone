@@ -3,8 +3,11 @@
     "",
     "\\Assets",
     "\\Assets\\Sound Effects",
-    "\\Library"
+    "\\Assets\\XR",
+    "\\ProjectSettings",
+    "\\UIElementsSchema",
+    "\\UserSettings"
   ],
-  "SelectedNode": "\\Assets\\installWalls.cs",
+  "SelectedNode": "\\Assets\\Unity.VisualScripting.Generated",
   "PreviewInSolutionExplorer": false
 }
