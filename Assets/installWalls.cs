@@ -68,6 +68,8 @@ public class installWalls : MonoBehaviour
     public static List<bool> listValid = new List<bool>();
     public static List<double> listTime = new List<double>();
 
+    public string playerData = "Action,Time,Valid Choice?\n";
+
 
     public void saveResults()
     {
@@ -83,6 +85,14 @@ public class installWalls : MonoBehaviour
         {
             // TODO write text here
             writer.WriteLine(jsonString);
+        }
+
+        string CSVpath = Path.Combine(Application.persistentDataPath, "export.csv");
+        using (TextWriter writer = File.AppendText(CSVpath))
+        {
+            // TODO write text here
+            writer.WriteLine(playerData);
+            Debug.Log(playerData);
         }
 
     }
