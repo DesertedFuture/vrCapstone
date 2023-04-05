@@ -112,6 +112,7 @@ public class installWalls : MonoBehaviour
     {
         //destroy everything and run start from the top
         Destroy(GameObject.Find("rebarParent(Clone)"));
+        Destroy(GameObject.Find("rebarBase(Clone)"));
         Destroy(GameObject.Find("electricalParent(Clone)"));
         Destroy(GameObject.Find("formworkParent(Clone)"));
         Destroy(GameObject.Find("hvacParent(Clone)"));
@@ -154,11 +155,10 @@ public class installWalls : MonoBehaviour
 
         if(GameObject.Find("hvacParent(Clone)") && GameObject.Find("plumbingParent(Clone)") && !GameObject.Find("victoryParent(Clone)"))
         {
-            GameObject victoryKeep = Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            victoryKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            victoryKeep.GetComponent<Rigidbody>().useGravity = false;
+            
 
             Destroy(GameObject.Find("rebarParent(Clone)"));
+            Destroy(GameObject.Find("rebarBase(Clone)"));
             Destroy(GameObject.Find("electricalParent(Clone)"));
             Destroy(GameObject.Find("formworkParent(Clone)"));
             Destroy(GameObject.Find("hvacParent(Clone)"));
@@ -166,6 +166,9 @@ public class installWalls : MonoBehaviour
             Destroy(GameObject.Find("embedsParent(Clone)"));
             Destroy(GameObject.Find("wallBase(Clone)"));
 
+            GameObject victoryKeep = Instantiate(victoryParent, victoryParent.transform.position, Quaternion.Euler(0f, 180f, 0f));
+
+            //maybe should wait 5 seconds
 
             Dialog myDialog = Dialog.Open(DialogPrefabSmall, DialogButtonType.Yes | DialogButtonType.No, "Nice job on completion!", "Would you like to save data?", true);
             if (myDialog != null)
