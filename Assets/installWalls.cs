@@ -27,6 +27,7 @@ public class installWalls : MonoBehaviour
     [SerializeField] private GameObject formwork;
     [SerializeField] private GameObject hvacBlocks;
     [SerializeField] private GameObject plumbing;
+    [SerializeField] private GameObject victoryParent;
 
 
     [SerializeField] private GameObject rebarFail;
@@ -113,6 +114,7 @@ public class installWalls : MonoBehaviour
 
     }
 
+
     public void notifyDelivery()
     {
         if (checkEER())
@@ -140,8 +142,21 @@ public class installWalls : MonoBehaviour
         timer = false;
         Debug.Log("finsihed in: " + val);
 
-        if(GameObject.Find("hvacParent(Clone)") && GameObject.Find("plumbingParent(Clone)"))
+        if(GameObject.Find("hvacParent(Clone)") && GameObject.Find("plumbingParent(Clone)") && !GameObject.Find("victoryParent(Clone)"))
         {
+            GameObject victoryKeep = Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            victoryKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            victoryKeep.GetComponent<Rigidbody>().useGravity = false;
+
+            Destroy(GameObject.Find("rebarParent(Clone)"));
+            Destroy(GameObject.Find("electricalParent(Clone)"));
+            Destroy(GameObject.Find("formworkParent(Clone)"));
+            Destroy(GameObject.Find("hvacParent(Clone)"));
+            Destroy(GameObject.Find("plumbingParent(Clone)"));
+            Destroy(GameObject.Find("embedsParent(Clone)"));
+            Destroy(GameObject.Find("wallBase(Clone)"));
+
+
             Dialog myDialog = Dialog.Open(DialogPrefabSmall, DialogButtonType.Yes | DialogButtonType.No, "Nice job on completion!", "Would you like to save data?", true);
             if (myDialog != null)
             {
