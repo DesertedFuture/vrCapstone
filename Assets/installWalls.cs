@@ -66,6 +66,7 @@ public class installWalls : MonoBehaviour
     public static List<string> listActions = new List<string>();
     public static List<bool> listValid = new List<bool>();
     public static List<double> listTime = new List<double>();
+    public string playerData = "Action,Time,Valid Choice?\n";
 
 
     public void saveResults()
@@ -84,17 +85,27 @@ public class installWalls : MonoBehaviour
             writer.WriteLine(jsonString);
         }
 
+        string CSVpath = Path.Combine(Application.persistentDataPath, "export.csv");
+        using (TextWriter writer = File.AppendText(CSVpath))
+        {
+            // TODO write text here
+            writer.WriteLine(playerData);
+            Debug.Log(playerData);
+        }
+
     }
     public void delivary()
     {
         magicWord = true;
     }
 
-    public void addList(string s, bool f, float t)
+    public void addList(string action, float time, bool valid)
     {
-        listActions.Add(s);
-        listValid.Add(f);
-        listTime.Add(Math.Round(t, 2));
+        listActions.Add(action);
+        listValid.Add(valid);
+        listTime.Add(Math.Round(time, 2));
+
+        playerData += action + ',' + time + ',' + valid + '\n';
     }
 
     public void reset()
@@ -150,6 +161,7 @@ public class installWalls : MonoBehaviour
 
         }
     }
+
     private void OnClosedDialogEvent(DialogResult obj)
     {
         if (obj.Result == DialogButtonType.Yes)
@@ -159,6 +171,7 @@ public class installWalls : MonoBehaviour
             
         }
     }
+
     public void InstallRebar()
     {
         //if else to prevent duplicate objects of same type
@@ -169,7 +182,7 @@ public class installWalls : MonoBehaviour
             rebarKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             rebarKeep.GetComponent<Rigidbody>().useGravity = false;
             //rebarKeep.GetComponent<Collider>().enabled = false;
-            addList("Install Rebar", true, val);
+            addList("Install Rebar", val, true);
         } 
         else
         {
@@ -177,7 +190,7 @@ public class installWalls : MonoBehaviour
             rebarDestroy.GetComponent<Rigidbody>().useGravity = true;
             rebarDestroy.GetComponent<Collider>().enabled = true;
             Destroy(rebarDestroy, 5f);
-            addList("Install Rebar", false, val);
+            addList("Install Rebar", val, false);
         }
     }
     public void InstallElectrical()
@@ -189,7 +202,7 @@ public class installWalls : MonoBehaviour
             electricalKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             //electricalKeep.GetComponent<Collider>().enabled = false;
             notifyDelivery();
-            addList("Install Electrical", true, val);
+            addList("Install Electrical",val, true);
         }
         else
         {
@@ -197,7 +210,7 @@ public class installWalls : MonoBehaviour
             electricalDestroy.GetComponent<Rigidbody>().useGravity = true;
             electricalDestroy.GetComponent<Collider>().enabled = true;
             Destroy(electricalDestroy, 5f);
-            addList("Install Electrical", false, val);
+            addList("Install Electrical",val, false);
 
         }
         
@@ -211,7 +224,7 @@ public class installWalls : MonoBehaviour
             embedsKeep.GetComponent<Rigidbody>().useGravity = false;
             //embedsKeep.GetComponent<Collider>().enabled = false;
             notifyDelivery();
-            addList("Install Embeds", true, val);
+            addList("Install Embeds", val, true);
         }
         else
         {
@@ -220,7 +233,7 @@ public class installWalls : MonoBehaviour
             emebedsDestroy.GetComponent<Rigidbody>().useGravity = true;
             Destroy(emebedsDestroy, 5f);
             Debug.Log("Cant install embeds until rebar is placed");
-            addList("Install Embeds", false, val);
+            addList("Install Embeds",val, false);
         }
         
     }
@@ -232,7 +245,7 @@ public class installWalls : MonoBehaviour
             formworkKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             formworkKeep.GetComponent<Rigidbody>().useGravity = false;
             formworkKeep.GetComponent<Collider>().enabled = false;
-            addList("Install Formwork", true, val);
+            addList("Install Formwork",val, true);
         }
         else
         {
@@ -241,7 +254,7 @@ public class installWalls : MonoBehaviour
             formworkDestroy.GetComponent<Collider>().enabled = true;
 
             Destroy(formworkDestroy, 5f);
-            addList("Install Formwork", false, val);
+            addList("Install Formwork",val, false);
             Debug.Log("Cant install formwork until Other conditions are met");
         }
         
@@ -255,7 +268,7 @@ public class installWalls : MonoBehaviour
             hvacKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             hvacKeep.GetComponent<Rigidbody>().useGravity = false;
             hvacKeep.GetComponent<Collider>().enabled = false;
-            addList("Install HVAC blocks", true, val);
+            addList("Install HVAC blocks",val, true);
             checkWin();
         }
         else
@@ -264,7 +277,7 @@ public class installWalls : MonoBehaviour
             hvacDestroy.GetComponent<Rigidbody>().useGravity = true;
             hvacDestroy.GetComponent<Collider>().enabled = true;
             Destroy(hvacDestroy, 5f);
-            addList("Install HVAC blocks", false, val);
+            addList("Install HVAC blocks",val, false);
             if (!GameObject.Find("formworkParent(Clone)"))
             {
                 Debug.Log("You need to have formwork first in order to do this");
@@ -281,7 +294,7 @@ public class installWalls : MonoBehaviour
             plumbingKeep.GetComponent<Rigidbody>().useGravity = false;
             plumbingKeep.GetComponent<Collider>().enabled = false;
             checkWin();
-            addList("Install Pluming", true, val);
+            addList("Install Pluming",val, true);
         }
         else
         {
@@ -289,7 +302,7 @@ public class installWalls : MonoBehaviour
             plumbingDestroy.GetComponent<Rigidbody>().useGravity = true;
             plumbingDestroy.GetComponent<Collider>().enabled = true;
             Destroy(plumbingDestroy, 5f);
-            addList("Install Pluming", false, val);
+            addList("Install Pluming",val, false);
             if (!GameObject.Find("formworkParent(Clone)"))
             {
                 Debug.Log("You need to have formwork first in order to do this");
