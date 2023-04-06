@@ -412,12 +412,12 @@ MonoBehaviour:
   hvacBlocks: {fileID: 6070134384941005100, guid: eb617b2c621cd81498c9339d4b667408, type: 3}
   plumbing: {fileID: 3053591792949483103, guid: ad0052fb278825d4696231642be77914, type: 3}
   victoryParent: {fileID: 8260534542953449641, guid: 3f47e517180031a43b7c06a80e415d98, type: 3}
-  dialogPrefabSmall: {fileID: 2680377478557818543, guid: 8e686c90124b8e14cbf8093893109e9a, type: 3}
-  val: 0
-  timer: 0
   playerData: 'Action,Time,Valid Choice?
 
 '
+  dialogPrefabSmall: {fileID: 2680377478557818543, guid: 8e686c90124b8e14cbf8093893109e9a, type: 3}
+  val: 0
+  timer: 0
 --- !u!1 &1644364339
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812843399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.282, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -573,7 +573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915862775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2, z: 0}
+  m_LocalPosition: {x: 0, y: -1.282, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
