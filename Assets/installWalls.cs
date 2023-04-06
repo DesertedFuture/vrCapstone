@@ -30,63 +30,24 @@ public class installWalls : MonoBehaviour
     [SerializeField] private GameObject victoryParent;
 
 
-    [SerializeField] private GameObject rebarFail;
-    [SerializeField] private GameObject electricalFail;
-    [SerializeField] private GameObject embedsFail;
-    [SerializeField] private GameObject formworkFail;
-    [SerializeField] private GameObject hvacBlocksFail;
-    [SerializeField] private GameObject plumbingFail;
-
-
-
-    [Serializable]
-    public class Player
-    {
-        public List<string> playerActions = new List<string>();
-        public List<bool> playerValid = new List<bool>();
-        public List<double> playerTime = new List<double>();
-    }
-
     [SerializeField]
     [Tooltip("Assign DialogSmall_192x96.prefab")]
     private GameObject dialogPrefabSmall;
 
-    /// <summary>
-    /// Small Dialog example prefab to display
-    /// </summary>
     public GameObject DialogPrefabSmall
     {
         get => dialogPrefabSmall;
         set => dialogPrefabSmall = value;
     }
 
-
     public static bool magicWord = false;
     public float val = 0;
     public bool timer;
-    public static List<string> listActions = new List<string>();
-    public static List<bool> listValid = new List<bool>();
-    public static List<double> listTime = new List<double>();
 
     public string playerData = "Action,Time,Valid Choice?\n";
 
-
     public void saveResults()
     {
-        Player newPlayer = new Player();
-        newPlayer.playerActions = listActions;
-        newPlayer.playerTime = listTime;
-        newPlayer.playerValid = listValid;
-        string jsonString = JsonUtility.ToJson(newPlayer, true);
-
-        //Application.persistentDataPath
-        string path = Path.Combine(Application.persistentDataPath, "playerData.json");
-        using (TextWriter writer = File.AppendText(path))
-        {
-            // TODO write text here
-            writer.WriteLine(jsonString);
-        }
-
         string CSVpath = Path.Combine(Application.persistentDataPath, "export.csv");
         using (TextWriter writer = File.AppendText(CSVpath))
         {
@@ -101,11 +62,9 @@ public class installWalls : MonoBehaviour
         magicWord = true;
     }
 
-    public void addList(string s, bool f, float t)
+    public void addList(string action,float time, bool valid)
     {
-        listActions.Add(s);
-        listValid.Add(f);
-        listTime.Add(Math.Round(t, 2));
+        playerData = action + "," + time + "," + valid + "\n"; 
     }
 
     public void reset()
@@ -119,12 +78,12 @@ public class installWalls : MonoBehaviour
         Destroy(GameObject.Find("plumbingParent(Clone)"));
         Destroy(GameObject.Find("embedsParent(Clone)"));
         Destroy(GameObject.Find("wallBase(Clone)"));
+        Destroy(GameObject.Find("victoryPArent(Clone)"));
 
 
         Start();
 
     }
-
 
     public void notifyDelivery()
     {
@@ -133,8 +92,6 @@ public class installWalls : MonoBehaviour
             Debug.Log("THIS IS NOW WHERE AN EVENT NEEDS TO OCCUR TO LET STUDENT KNOW THAT THERE NEEDS TO BE A DILVERY");
             //!!!!!!!!!!!!!!!!!drop down notification at least!!!!!!!!!!!!!!!!
         }
-
-
     }
 
     //used to see if you can install formwork
@@ -178,6 +135,31 @@ public class installWalls : MonoBehaviour
 
         }
     }
+
+    public void installGameObject(GameObject wallComponent){
+        //i might not need this string but it would be nice
+        //string is to help function look for prefab clone that would exist within the scene
+        string newTemp = wallComponent.name + "(Clone)";
+        if (!GameObject.Find( newTemp)) {
+            Debug.Log(newTemp); 
+            GameObject lmao = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            lmao.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            lmao.GetComponent<Rigidbody>().useGravity = false;
+            //rebarKeep.GetComponent<Collider>().enabled = false;
+            addList(newTemp, val, true);
+            //return lmao;
+        } else
+        {
+            GameObject wallDestroy = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            wallDestroy.GetComponent<Rigidbody>().useGravity = true;
+            wallDestroy.GetComponent<Collider>().enabled = true;
+            Destroy(wallDestroy, 5f);
+            addList(newTemp, val, false);
+        }
+
+
+    }
+
     private void OnClosedDialogEvent(DialogResult obj)
     {
         if (obj.Result == DialogButtonType.Yes)
@@ -187,145 +169,40 @@ public class installWalls : MonoBehaviour
             
         }
     }
+
     public void InstallRebar()
     {
-        //if else to prevent duplicate objects of same type
-        if ( !GameObject.Find("rebarParent(Clone)"))
-        {
-            Destroy(GameObject.Find("rebarBase(Clone)"));
-            GameObject rebarKeep = Instantiate(rebar, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            rebarKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            rebarKeep.GetComponent<Rigidbody>().useGravity = false;
-            //rebarKeep.GetComponent<Collider>().enabled = false;
-            addList("Install Rebar", true, val);
-        } 
-        else
-        {
-            GameObject rebarDestroy = Instantiate(rebarFail, rebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            rebarDestroy.GetComponent<Rigidbody>().useGravity = true;
-            rebarDestroy.GetComponent<Collider>().enabled = true;
-            Destroy(rebarDestroy, 5f);
-            addList("Install Rebar", false, val);
-        }
+        installGameObject(rebar);
     }
+
     public void InstallElectrical()
     {
-        if ( !GameObject.Find("electricalParent(Clone)") )
-        {
-            GameObject electricalKeep = Instantiate(electrical, electrical.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            electricalKeep.GetComponent<Rigidbody>().useGravity = false;
-            electricalKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            //electricalKeep.GetComponent<Collider>().enabled = false;
-            notifyDelivery();
-            addList("Install Electrical", true, val);
-        }
-        else
-        {
-            GameObject electricalDestroy = Instantiate(electricalFail, electrical.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            electricalDestroy.GetComponent<Rigidbody>().useGravity = true;
-            electricalDestroy.GetComponent<Collider>().enabled = true;
-            Destroy(electricalDestroy, 5f);
-            addList("Install Electrical", false, val);
-
-        }
-        
+        installGameObject(electrical);
     }
+
     public void InstallEmbeds()
     {
-        if ( !GameObject.Find("embedsParent(Clone)") && GameObject.Find("rebarParent(Clone)"))
-        {
-            GameObject embedsKeep = Instantiate(embeds, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            embedsKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            embedsKeep.GetComponent<Rigidbody>().useGravity = false;
-            //embedsKeep.GetComponent<Collider>().enabled = false;
-            notifyDelivery();
-            addList("Install Embeds", true, val);
-        }
-        else
-        {
-            GameObject emebedsDestroy = Instantiate(embedsFail, embeds.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            emebedsDestroy.GetComponent<Collider>().enabled = true;
-            emebedsDestroy.GetComponent<Rigidbody>().useGravity = true;
-            Destroy(emebedsDestroy, 5f);
-            Debug.Log("Cant install embeds until rebar is placed");
-            addList("Install Embeds", false, val);
-        }
-        
+        installGameObject(embeds);
+
     }
+
     public void InstallFormwork()
     {
-        if (!GameObject.Find("formworkParent(Clone)") && checkEER() && magicWord)
-        {
-            GameObject formworkKeep = Instantiate(formwork, formwork.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            formworkKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            formworkKeep.GetComponent<Rigidbody>().useGravity = false;
-            formworkKeep.GetComponent<Collider>().enabled = false;
-            addList("Install Formwork", true, val);
-        }
-        else
-        {
-            GameObject formworkDestroy = Instantiate(formworkFail, formwork.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            formworkDestroy.GetComponent<Rigidbody>().useGravity = true;
-            formworkDestroy.GetComponent<Collider>().enabled = true;
+        installGameObject(formwork);
 
-            Destroy(formworkDestroy, 5f);
-            addList("Install Formwork", false, val);
-            Debug.Log("Cant install formwork until Other conditions are met");
-        }
-        
     }
+
     public void InstallHVACBlocks()
     {
-        
-        if ( !GameObject.Find("hvacParent(Clone)")  && (GameObject.Find("formworkParent(Clone)") ) )
-        {
-            GameObject hvacKeep = Instantiate(hvacBlocks, hvacBlocks.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            hvacKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            hvacKeep.GetComponent<Rigidbody>().useGravity = false;
-            hvacKeep.GetComponent<Collider>().enabled = false;
-            addList("Install HVAC blocks", true, val);
-            checkWin();
-        }
-        else
-        {
-            GameObject hvacDestroy = Instantiate(hvacBlocksFail, hvacBlocks.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            hvacDestroy.GetComponent<Rigidbody>().useGravity = true;
-            hvacDestroy.GetComponent<Collider>().enabled = true;
-            Destroy(hvacDestroy, 5f);
-            addList("Install HVAC blocks", false, val);
-            if (!GameObject.Find("formworkParent(Clone)"))
-            {
-                Debug.Log("You need to have formwork first in order to do this");
-            }
-        }
-        
+        installGameObject(hvacBlocks);
+
     }
+
     public void InstallPlumbing()
     {
-        if ( !GameObject.Find("plumbingParent(Clone)")  && GameObject.Find("formworkParent(Clone)"))
-        {
-            GameObject plumbingKeep = Instantiate(plumbing, plumbing.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            plumbingKeep.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            plumbingKeep.GetComponent<Rigidbody>().useGravity = false;
-            plumbingKeep.GetComponent<Collider>().enabled = false;
-            checkWin();
-            addList("Install Pluming", true, val);
-        }
-        else
-        {
-            GameObject plumbingDestroy = Instantiate(plumbingFail, plumbing.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            plumbingDestroy.GetComponent<Rigidbody>().useGravity = true;
-            plumbingDestroy.GetComponent<Collider>().enabled = true;
-            Destroy(plumbingDestroy, 5f);
-            addList("Install Pluming", false, val);
-            if (!GameObject.Find("formworkParent(Clone)"))
-            {
-                Debug.Log("You need to have formwork first in order to do this");
-            }
-            
-        }
-        
+        installGameObject(plumbing);
     }
+
     void Update()
     {
         if(timer)
@@ -343,6 +220,8 @@ public class installWalls : MonoBehaviour
         wallStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         wallStart.GetComponent<Collider>().enabled = false;
         Debug.Log(Application.persistentDataPath);
+
+        
 
     }
 
