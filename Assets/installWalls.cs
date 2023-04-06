@@ -77,14 +77,19 @@ public class installWalls : MonoBehaviour
     public void prepWin()
     {
         //destroys everything except victory model
-        Destroy(GameObject.Find("rebarParent(Clone)"));
+
+        Destroy(GameObject.Find("baseWall(Clone)"));
+        Destroy(GameObject.Find("baseRebar(Clone)"));
         Destroy(GameObject.Find("rebarBase(Clone)"));
+        Destroy(GameObject.Find("wallBase(Clone)"));
+        Destroy(GameObject.Find("rebarParent(Clone)"));
         Destroy(GameObject.Find("electricalParent(Clone)"));
         Destroy(GameObject.Find("formworkParent(Clone)"));
         Destroy(GameObject.Find("hvacParent(Clone)"));
         Destroy(GameObject.Find("plumbingParent(Clone)"));
         Destroy(GameObject.Find("embedsParent(Clone)"));
-        Destroy(GameObject.Find("wallBase(Clone)"));
+        
+        
 
     }
 
@@ -104,6 +109,7 @@ public class installWalls : MonoBehaviour
 
         if(GameObject.Find("hvacParent(Clone)") && GameObject.Find("plumbingParent(Clone)") && !GameObject.Find("victoryParent(Clone)"))
         {
+            prepWin();
             GameObject victoryKeep = Instantiate(victoryParent, victoryParent.transform.position, Quaternion.Euler(0f, 180f, 0f));
 
             //maybe should wait 5 seconds
@@ -151,6 +157,8 @@ public class installWalls : MonoBehaviour
 
     public void InstallRebar()
     {
+        Destroy(GameObject.Find("rebarBase(Clone)"));
+
         installGameObject(rebar);
     }
 
@@ -171,7 +179,7 @@ public class installWalls : MonoBehaviour
 
     public void InstallFormwork()
     {
-        if (GameObject.Find("embedsParent(Clone)") && magicWord)
+        if (GameObject.Find("electricalParent(Clone)") && GameObject.Find("embedsParent(Clone)") && magicWord)
         {
             installGameObject(formwork);
         } else
@@ -211,14 +219,18 @@ public class installWalls : MonoBehaviour
     public void reset()
     {
         //destroy everything and run start from the top
-        Destroy(GameObject.Find("rebarParent(Clone)"));
+        
+        Destroy(GameObject.Find("baseWall(Clone)"));
+        Destroy(GameObject.Find("baseRebar(Clone)"));
         Destroy(GameObject.Find("rebarBase(Clone)"));
+        Destroy(GameObject.Find("wallBase(Clone)"));
+        Destroy(GameObject.Find("rebarParent(Clone)"));
         Destroy(GameObject.Find("electricalParent(Clone)"));
         Destroy(GameObject.Find("formworkParent(Clone)"));
         Destroy(GameObject.Find("hvacParent(Clone)"));
         Destroy(GameObject.Find("plumbingParent(Clone)"));
         Destroy(GameObject.Find("embedsParent(Clone)"));
-        Destroy(GameObject.Find("wallBase(Clone)"));
+
         Destroy(GameObject.Find("victoryParent(Clone)"));
         val = 0;
 
@@ -237,10 +249,8 @@ public class installWalls : MonoBehaviour
     void Start()
     {
         timer = true;
-        GameObject wallStart = Instantiate(baseWall, baseWall.transform.position, Quaternion.Euler(0f, 180f, 0f));
-        GameObject wallRebar = Instantiate(baseRebar, baseRebar.transform.position, Quaternion.Euler(0f, 180f, 0f));
-        wallStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        wallStart.GetComponent<Collider>().enabled = false;
+        installGameObject(baseWall);
+        installGameObject(baseRebar);
         Debug.Log(Application.persistentDataPath);
         setPlayerData();
     }
