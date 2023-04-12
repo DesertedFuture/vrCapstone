@@ -153,8 +153,6 @@ public class installWalls : MonoBehaviour
 
     public void InstallRebar()
     {
-        Destroy(GameObject.Find("baseRebar(Clone)"));
-
         installGameObject(rebar);
     }
 
@@ -175,8 +173,10 @@ public class installWalls : MonoBehaviour
 
     public void InstallFormwork()
     {
+
         if (GameObject.Find("electricalParent(Clone)") && GameObject.Find("embedsParent(Clone)") && magicWord)
         {
+            Destroy(GameObject.Find("baseRebar(Clone)"));
             installGameObject(formwork);
         } else
         {
