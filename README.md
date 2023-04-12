@@ -14,6 +14,7 @@ with unity project opened, load testingScene (Assets-> testingScene)
 
 to view within unity, make sure to toggle "pause on error" in the console or else the project will constantly pause
 
-voice commands are recognised but you can also use F keys keys in replacement for voice commands
+voice commands are recognised as "Install" then one of these options: Rebar, Electrical, Embeds, Formwork, plumbing, HVAC blocks
+but you can also use F keys keys in replacement for voice commands
 F12 is for reseting the scene
-F10 is for delivary
+F10 is for delivery
