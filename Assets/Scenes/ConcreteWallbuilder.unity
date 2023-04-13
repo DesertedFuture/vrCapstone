@@ -186,6 +186,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - keyword: Exit Application
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1702987175}
+          m_TargetAssemblyTypeName: QuitGameScript, Assembly-CSharp
+          m_MethodName: QuitApplication
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   persistentKeywords: 0
   speechConfirmationTooltipPrefab: {fileID: 0}
 --- !u!4 &89115983
@@ -490,7 +506,7 @@ Transform:
   m_GameObject: {fileID: 1517432689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.443793, y: -1.955717, z: 27.001238}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1583004277}
@@ -809,7 +825,7 @@ PrefabInstance:
         \"Install Embeds\"\n\n     Other Commands:\n                 \"Delivery\"
         to Deliver Formwork\n                 \"Reset Scene\" to reset simulator\n                
         \"Activate Menu\" to Turn on Hand Menu\n                 \"Deactivate Menu\"
-        to Turn off Hand Menu\n\n"
+        to Turn off Hand Menu\n                 \"Exit Application\" to close app\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5931198887527984356, guid: 478732197b53dee4694480aac1a7c98c, type: 3}
       propertyPath: m_fontSize
@@ -1064,6 +1080,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1702987174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702987176}
+  - component: {fileID: 1702987175}
+  m_Layer: 0
+  m_Name: QuitGameScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1702987175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702987174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187231f56bca38b40be2142e33325dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1702987176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702987174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.3905325, y: -0.53292966, z: 47.14983}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1812843399
 GameObject:
   m_ObjectHideFlags: 0

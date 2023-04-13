@@ -86,3 +86,10 @@ MonoBehaviour:
       id: 6
       description: Trigger
       axisConstraint: 3
+  - localizationKey: 
+    keyword: Exit Application
+    keyCode: 0
+    action:
+      id: 6
+      description: Trigger
+      axisConstraint: 3
