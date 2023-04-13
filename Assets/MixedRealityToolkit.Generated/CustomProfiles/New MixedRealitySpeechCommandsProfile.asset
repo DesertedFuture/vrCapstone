@@ -72,3 +72,17 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Activate Menu
+    keyCode: 0
+    action:
+      id: 6
+      description: Trigger
+      axisConstraint: 3
+  - localizationKey: 
+    keyword: Deactivate Menu
+    keyCode: 0
+    action:
+      id: 6
+      description: Trigger
+      axisConstraint: 3

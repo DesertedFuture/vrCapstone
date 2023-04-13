@@ -236,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &552329153
 Transform:
   m_ObjectHideFlags: 0
@@ -603,9 +603,9 @@ PrefabInstance:
         \"Install Electrical\"\n                 \"Install HVAC Blocks\"\n                
         \"Install Rebar\"\n                 \"Install Plumbing\"\n                
         \"Install Embeds\"\n\n     Other Commands:\n                 \"Delivery\"
-        when Formwork is Delivered\n                 \"Reset\" to reset simulator\n                
-        \"Go back to square one\" to reset simulator?\n                 \"Exit Application\"
-        to exit application?\n\n"
+        to Deliver Formwork\n                 \"Reset Scene\" to reset simulator\n                
+        \"Activate Menu\" to Turn on Hand Menu\n                 \"Deactivate Menu\"
+        to Turn off Hand Menu\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5931198887527984356, guid: 478732197b53dee4694480aac1a7c98c, type: 3}
       propertyPath: m_fontSize
@@ -957,7 +957,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1964575672
+--- !u!1 &1868364567
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -965,30 +965,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1964575675}
-  - component: {fileID: 1964575674}
-  - component: {fileID: 1964575673}
+  - component: {fileID: 1868364570}
+  - component: {fileID: 1868364569}
+  - component: {fileID: 1868364568}
   m_Layer: 0
-  m_Name: installWallScripts_Placeholder
+  m_Name: installWallScripts_placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1964575673
+--- !u!114 &1868364568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964575672}
+  m_GameObject: {fileID: 1868364567}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b63b7f570babb649939a85a19dea032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseWall: {fileID: 1211692267351255647, guid: 989767224b2633c49bc76f261e1ea349, type: 3}
-  baseRebar: {fileID: 1354279492197288351, guid: abffc13f9cdda264b8671292a65a75e7, type: 3}
+  baseWall: {fileID: 629816729106284357, guid: 2982a2171a1101c46986215c5bd2c671, type: 3}
+  baseRebar: {fileID: 3378740313033638358, guid: b4282c5f7551aed47b5d982ad8a928f5, type: 3}
   rebar: {fileID: 6121174305373676075, guid: 41629c32d466c3843b1591df8b0f2fe5, type: 3}
   electrical: {fileID: 938466435939576407, guid: d0d951aaf3bec134198b203fd4a33a01, type: 3}
   embeds: {fileID: 8274955350810928116, guid: fc893e661be1ca34d88c07be554167ae, type: 3}
@@ -1002,13 +1002,13 @@ MonoBehaviour:
   dialogPrefabSmall: {fileID: 2680377478557818543, guid: 8e686c90124b8e14cbf8093893109e9a, type: 3}
   val: 0
   timer: 0
---- !u!114 &1964575674
+--- !u!114 &1868364569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964575672}
+  m_GameObject: {fileID: 1868364567}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
           m_MethodName: InstallElectrical
           m_Mode: 1
@@ -1036,7 +1036,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
           m_MethodName: InstallEmbeds
           m_Mode: 1
@@ -1052,7 +1052,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
           m_MethodName: InstallFormwork
           m_Mode: 1
@@ -1068,7 +1068,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
           m_MethodName: InstallHVACBlocks
           m_Mode: 1
@@ -1084,7 +1084,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
           m_MethodName: InstallPlumbing
           m_Mode: 1
@@ -1100,7 +1100,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
           m_MethodName: InstallRebar
           m_Mode: 1
@@ -1116,7 +1116,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
           m_MethodName: reset
           m_Mode: 1
@@ -1128,13 +1128,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: Delivary
+  - keyword: Delivery
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1964575673}
+        - m_Target: {fileID: 1868364568}
           m_TargetAssemblyTypeName: installWalls, Assembly-CSharp
-          m_MethodName: delivary
+          m_MethodName: delivery
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1146,15 +1146,95 @@ MonoBehaviour:
           m_CallState: 2
   persistentKeywords: 0
   speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
---- !u!4 &1964575675
+--- !u!4 &1868364570
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964575672}
+  m_GameObject: {fileID: 1868364567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1974115659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974115661}
+  - component: {fileID: 1974115660}
+  m_Layer: 0
+  m_Name: HandMenuUIActivate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1974115660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974115659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 0
+  keywords:
+  - keyword: Activate Menu
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 552329152}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - keyword: Deactivate Menu
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 552329152}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  persistentKeywords: 0
+  speechConfirmationTooltipPrefab: {fileID: 0}
+--- !u!4 &1974115661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974115659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.797214, y: -3.343687, z: 43.889275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
