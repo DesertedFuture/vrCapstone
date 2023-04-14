@@ -44,15 +44,19 @@ public class installWalls : MonoBehaviour
     public static bool magicWord = false;
     public float val = 0;
     public bool timer;
+    public const int maxSpeed = 3;
+
+    
 
 
     public void setPlayerData()
     {
         playerData = "Action,Time,Valid Choice?\n";
     }
+
     public void saveResults()
     {
-        string CSVpath = Path.Combine(Application.persistentDataPath, "export.csv");
+        string CSVpath = Path.Combine(Application.persistentDataPath, "playerData.csv");
         using (TextWriter writer = File.AppendText(CSVpath))
         {
             // TODO write text here
@@ -115,11 +119,13 @@ public class installWalls : MonoBehaviour
 
     public void failGameObject(GameObject wallComponent)
     {
+        
+
         string newTemp = wallComponent.name + "(Clone)";
         GameObject wallDestroy = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
         wallDestroy.GetComponent<Rigidbody>().useGravity = true;
         wallDestroy.GetComponent<Collider>().enabled = true;
-        Destroy(wallDestroy, 1f);
+        Destroy(wallDestroy, 3f);
         addList(newTemp, val, false);
     }
 
@@ -242,6 +248,7 @@ public class installWalls : MonoBehaviour
 
     void Start()
     {
+        //Physics.gravity = new Vector3(0, -1.0F, 0);
         timer = true;
         installGameObject(baseWall);
         installGameObject(baseRebar);
