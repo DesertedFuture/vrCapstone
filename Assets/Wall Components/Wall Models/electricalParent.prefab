@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 128198184093816576}
   - component: {fileID: 8484511548531705175}
   - component: {fileID: 3785512988970270754}
-  - component: {fileID: 2757902043597538429}
   - component: {fileID: -8057558282768677168}
   m_Layer: 0
   m_Name: electricalParent
@@ -170,22 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0922eba3dcfb75347ab5b843b2af74c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &2757902043597538429
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938466435939576407}
-  serializedVersion: 2
-  m_Mass: 0.25
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &-8057558282768677168
 BoxCollider:
   m_ObjectHideFlags: 0

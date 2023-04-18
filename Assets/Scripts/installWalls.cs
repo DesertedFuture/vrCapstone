@@ -49,11 +49,10 @@ public class installWalls : MonoBehaviour
     public static bool magicWord = false;
     public float val = 0;
     public bool timer;
-    public const int maxSpeed = 3;
 
     
 
-
+    //functions for saving player data
     public void setPlayerData()
     {
         playerData = "Action,Time,Valid Choice?\n";
@@ -64,16 +63,10 @@ public class installWalls : MonoBehaviour
         string CSVpath = Path.Combine(Application.persistentDataPath, "playerData.csv");
         using (TextWriter writer = File.AppendText(CSVpath))
         {
-            // TODO write text here
             writer.WriteLine(playerData);
             Debug.Log(playerData);
         }
 
-    }
-
-    public void delivery()
-    {
-        magicWord = true;
     }
 
     public void addList(string action,float time, bool valid)
@@ -83,6 +76,29 @@ public class installWalls : MonoBehaviour
         Debug.Log(playerData);
     }
 
+
+    //functions for dialog box
+    public void dialog()
+    {
+        Dialog myDialog = Dialog.Open(DialogPrefabSmall, DialogButtonType.Yes | DialogButtonType.No, "Nice job on completion!", "Would you like to save data?", true);
+        if (myDialog != null)
+        {
+            myDialog.OnClosed += OnClosedDialogEvent;
+        }
+    }
+
+    private void OnClosedDialogEvent(DialogResult obj)
+    {
+        if (obj.Result == DialogButtonType.Yes)
+        {
+            saveResults();
+        }
+    }
+
+
+
+
+    //functions for checking win
     public void prepWin()
     {
         //destroys everything except victory model
@@ -98,15 +114,6 @@ public class installWalls : MonoBehaviour
 
     }
 
-    public void dialog()
-    {
-        Dialog myDialog = Dialog.Open(DialogPrefabSmall, DialogButtonType.Yes | DialogButtonType.No, "Nice job on completion!", "Would you like to save data?", true);
-        if (myDialog != null)
-        {
-            myDialog.OnClosed += OnClosedDialogEvent;
-        }
-    }
-
     public void checkWin()
     {
         timer = false;
@@ -117,15 +124,18 @@ public class installWalls : MonoBehaviour
             prepWin();
             GameObject victoryKeep = Instantiate(victoryParent, victoryParent.transform.position, Quaternion.Euler(0f, 180f, 0f));
 
-            //maybe should wait 5 seconds
-            Invoke("dialog", 20);
+            //dialog needs to wait for victory animation to finish
+            Invoke("dialog", 15);
         }
     }
 
+
+
+    //utility functions for installing / failing objects
+
+
     public void failGameObject(GameObject wallComponent)
     {
-        
-
         string newTemp = wallComponent.name + "(Clone)";
         GameObject wallDestroy = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
         Destroy(wallDestroy, 10f);
@@ -133,31 +143,24 @@ public class installWalls : MonoBehaviour
     }
 
     public void installGameObject(GameObject wallComponent){
-        //i might not need this string but it would be nice
-        //string is to help function look for prefab clone that would exist within the scene
-        string newTemp = wallComponent.name + "(Clone)";
-        if (!GameObject.Find( newTemp)) {
-            Debug.Log(newTemp); 
-            GameObject lmao = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            lmao.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            lmao.GetComponent<Rigidbody>().useGravity = false;
-            //rebarKeep.GetComponent<Collider>().enabled = false;
-            addList(newTemp, val, true);
-            //return lmao;
+        string wallComponentName = wallComponent.name + "(Clone)";
+        if (!GameObject.Find(wallComponentName)) {
+            Debug.Log(wallComponentName); 
+            GameObject newWallComponent = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            addList(wallComponentName, val, true);
+
         } else
         {
-            failGameObject(wallComponent);
+            addList(wallComponentName, val, false);
         }
     }
-    
-    private void OnClosedDialogEvent(DialogResult obj)
+
+
+
+    //functions that are callable to user
+    public void delivery()
     {
-        if (obj.Result == DialogButtonType.Yes)
-        {
-            //save results
-            saveResults();
-            
-        }
+        magicWord = true;
     }
 
     public void InstallRebar()
@@ -182,7 +185,6 @@ public class installWalls : MonoBehaviour
 
     public void InstallFormwork()
     {
-
         if (magicWord) 
         {
             Destroy(GameObject.Find("baseRebar(Clone)"));
@@ -192,7 +194,7 @@ public class installWalls : MonoBehaviour
 
     public void InstallHVACBlocks()
     {
-        if (GameObject.Find("formworkParent(Clone)") && magicWord)
+        if (GameObject.Find("formworkParent(Clone)"))
         {
             installGameObject(hvacBlocks);
         } else
@@ -204,7 +206,7 @@ public class installWalls : MonoBehaviour
 
     public void InstallPlumbing()
     {
-        if (GameObject.Find("formworkParent(Clone)") && magicWord)
+        if (GameObject.Find("formworkParent(Clone)"))
         {
             installGameObject(plumbing);
         }
@@ -230,6 +232,9 @@ public class installWalls : MonoBehaviour
         Destroy(GameObject.Find("plumbingParent(Clone)"));
         Destroy(GameObject.Find("embedsParent(Clone)"));
         Destroy(GameObject.Find("victoryParent(Clone)"));
+        Destroy(GameObject.Find("hvacFail(Clone)"));
+        Destroy(GameObject.Find("plumbingFail(Clone)"));
+
         timer = false;
         val = 0;
         magicWord = false;
