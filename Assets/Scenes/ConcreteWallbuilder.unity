@@ -711,6 +711,9 @@ MonoBehaviour:
   hvacBlocks: {fileID: 6070134384941005100, guid: eb617b2c621cd81498c9339d4b667408, type: 3}
   plumbing: {fileID: 3053591792949483103, guid: ad0052fb278825d4696231642be77914, type: 3}
   victoryParent: {fileID: 8260534542953449641, guid: 3f47e517180031a43b7c06a80e415d98, type: 3}
+  embedsFail: {fileID: 6833395203329292533, guid: 348aa99a4dfffa2498a65dcb83f2f870, type: 3}
+  HVACFail: {fileID: 1009480453513925795, guid: 3d2288f61b981644cb133d060813c685, type: 3}
+  plumbingFail: {fileID: 7686103631145301173, guid: 9d247c96f86fea94e815268fd991383a, type: 3}
   playerData: 'Action,Time,Valid Choice?
 
 '

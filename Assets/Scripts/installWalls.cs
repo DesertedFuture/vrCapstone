@@ -29,6 +29,11 @@ public class installWalls : MonoBehaviour
     [SerializeField] private GameObject plumbing;
     [SerializeField] private GameObject victoryParent;
 
+    [SerializeField] private GameObject embedsFail;
+    [SerializeField] private GameObject HVACFail;
+    [SerializeField] private GameObject plumbingFail;
+
+
     public string playerData = "";
 
     [SerializeField]
@@ -44,15 +49,19 @@ public class installWalls : MonoBehaviour
     public static bool magicWord = false;
     public float val = 0;
     public bool timer;
+    public const int maxSpeed = 3;
+
+    
 
 
     public void setPlayerData()
     {
         playerData = "Action,Time,Valid Choice?\n";
     }
+
     public void saveResults()
     {
-        string CSVpath = Path.Combine(Application.persistentDataPath, "export.csv");
+        string CSVpath = Path.Combine(Application.persistentDataPath, "playerData.csv");
         using (TextWriter writer = File.AppendText(CSVpath))
         {
             // TODO write text here
@@ -115,11 +124,11 @@ public class installWalls : MonoBehaviour
 
     public void failGameObject(GameObject wallComponent)
     {
+        
+
         string newTemp = wallComponent.name + "(Clone)";
         GameObject wallDestroy = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
-        wallDestroy.GetComponent<Rigidbody>().useGravity = true;
-        wallDestroy.GetComponent<Collider>().enabled = true;
-        Destroy(wallDestroy, 1f);
+        Destroy(wallDestroy, 10f);
         addList(newTemp, val, false);
     }
 
@@ -167,23 +176,18 @@ public class installWalls : MonoBehaviour
             installGameObject(embeds);
         } else
         {
-            failGameObject(embeds);
+            failGameObject(embedsFail);
         }
     }
 
     public void InstallFormwork()
     {
 
-        if (GameObject.Find("electricalParent(Clone)") && GameObject.Find("embedsParent(Clone)") && magicWord)
+        if (magicWord) 
         {
             Destroy(GameObject.Find("baseRebar(Clone)"));
             installGameObject(formwork);
-        } else
-        {
-            failGameObject(formwork);
         }
-            
-
     }
 
     public void InstallHVACBlocks()
@@ -193,9 +197,9 @@ public class installWalls : MonoBehaviour
             installGameObject(hvacBlocks);
         } else
         {
-            failGameObject(hvacBlocks);
+            failGameObject(HVACFail);
         }
-        Invoke("checkWin", 20);
+        Invoke("checkWin", 15);
     }
 
     public void InstallPlumbing()
@@ -206,9 +210,9 @@ public class installWalls : MonoBehaviour
         }
         else
         {
-            failGameObject(plumbing);
+            failGameObject(plumbingFail);
         }
-        Invoke("checkWin", 20);
+        Invoke("checkWin", 15);
         
     }
 
