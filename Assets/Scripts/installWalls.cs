@@ -29,6 +29,11 @@ public class installWalls : MonoBehaviour
     [SerializeField] private GameObject plumbing;
     [SerializeField] private GameObject victoryParent;
 
+    [SerializeField] private GameObject embedsFail;
+    [SerializeField] private GameObject HVACFail;
+    [SerializeField] private GameObject plumbingFail;
+
+
     public string playerData = "";
 
     [SerializeField]
@@ -123,9 +128,7 @@ public class installWalls : MonoBehaviour
 
         string newTemp = wallComponent.name + "(Clone)";
         GameObject wallDestroy = Instantiate(wallComponent, wallComponent.transform.position, Quaternion.Euler(0f, 180f, 0f));
-        wallDestroy.GetComponent<Rigidbody>().useGravity = true;
-        wallDestroy.GetComponent<Collider>().enabled = true;
-        Destroy(wallDestroy, 3f);
+        Destroy(wallDestroy, 10f);
         addList(newTemp, val, false);
     }
 
@@ -173,23 +176,18 @@ public class installWalls : MonoBehaviour
             installGameObject(embeds);
         } else
         {
-            failGameObject(embeds);
+            failGameObject(embedsFail);
         }
     }
 
     public void InstallFormwork()
     {
 
-        if (GameObject.Find("electricalParent(Clone)") && GameObject.Find("embedsParent(Clone)") && magicWord)
+        if (magicWord) 
         {
             Destroy(GameObject.Find("baseRebar(Clone)"));
             installGameObject(formwork);
-        } else
-        {
-            failGameObject(formwork);
         }
-            
-
     }
 
     public void InstallHVACBlocks()
@@ -199,9 +197,9 @@ public class installWalls : MonoBehaviour
             installGameObject(hvacBlocks);
         } else
         {
-            failGameObject(hvacBlocks);
+            failGameObject(HVACFail);
         }
-        Invoke("checkWin", 20);
+        Invoke("checkWin", 15);
     }
 
     public void InstallPlumbing()
@@ -212,9 +210,9 @@ public class installWalls : MonoBehaviour
         }
         else
         {
-            failGameObject(plumbing);
+            failGameObject(plumbingFail);
         }
-        Invoke("checkWin", 20);
+        Invoke("checkWin", 15);
         
     }
 
@@ -248,7 +246,6 @@ public class installWalls : MonoBehaviour
 
     void Start()
     {
-        //Physics.gravity = new Vector3(0, -1.0F, 0);
         timer = true;
         installGameObject(baseWall);
         installGameObject(baseRebar);
